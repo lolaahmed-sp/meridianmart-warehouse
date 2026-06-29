@@ -1,0 +1,15 @@
+# Virtual environment — never commit to GitHub
+.venv/
+venv/
+
+# Environment secrets — never commit to GitHub
+.env
+service_account.json
+
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+
+# macOS system file
+.DS_Store
