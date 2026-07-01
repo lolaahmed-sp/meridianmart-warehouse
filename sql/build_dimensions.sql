@@ -2,12 +2,16 @@
 -- MeridianMart Data Pipeline
 -- Week 2 Day 2: Build Dimension Tables
 -- Promotes data from staging → marts schema
+-- Updated: removed Excel date conversion
+-- (already handled in load_staging.sql)
 -- ============================================
 
 CREATE SCHEMA IF NOT EXISTS marts;
 
+-- ============================================
 -- Clear existing dimension data before reload
--- (safe to re-run)
+-- Safe to re-run multiple times
+-- ============================================
 TRUNCATE TABLE marts.dim_stores   RESTART IDENTITY CASCADE;
 TRUNCATE TABLE marts.dim_staff    RESTART IDENTITY CASCADE;
 TRUNCATE TABLE marts.dim_managers RESTART IDENTITY CASCADE;
@@ -15,7 +19,8 @@ TRUNCATE TABLE marts.dim_products RESTART IDENTITY CASCADE;
 
 -- ============================================
 -- dim_stores
--- 11 stores across 3 regions
+-- 11 stores across 3 regions in Ghana
+-- Expected: 11 rows
 -- ============================================
 
 CREATE TABLE IF NOT EXISTS marts.dim_stores (
@@ -37,13 +42,14 @@ SELECT
 FROM staging.stores
 ORDER BY store_id;
 
--- Verify
 SELECT 'dim_stores' AS table_name, COUNT(*) AS rows
 FROM marts.dim_stores;
 
 -- ============================================
 -- dim_staff
 -- 90 employees across 11 stores
+-- Expected: 90 rows
+-- Note: date_hired already DATE type in staging
 -- ============================================
 
 CREATE TABLE IF NOT EXISTS marts.dim_staff (
@@ -72,23 +78,19 @@ SELECT
     role,
     store_id,
     phone_number,
-    CASE
-        WHEN date_hired ~ '^\d+(\.\d+)?$'
-        THEN TO_DATE('1899-12-30', 'YYYY-MM-DD')
-             + CAST(CAST(date_hired AS FLOAT) AS INTEGER)
-        ELSE NULL
-    END AS date_hired,
+    date_hired,
     employment_status
 FROM staging.staff
 ORDER BY staff_id;
 
--- Verify
 SELECT 'dim_staff' AS table_name, COUNT(*) AS rows
 FROM marts.dim_staff;
 
 -- ============================================
 -- dim_managers
--- 25 managers (store + regional)
+-- 25 managers (11 store, 11 assistant, 3 regional)
+-- Expected: 25 rows
+-- Note: date_appointed already DATE type in staging
 -- ============================================
 
 CREATE TABLE IF NOT EXISTS marts.dim_managers (
@@ -120,23 +122,18 @@ SELECT
     store_id,
     phone_number,
     email,
-    CASE
-        WHEN date_appointed ~ '^\d+(\.\d+)?$'
-        THEN TO_DATE('1899-12-30', 'YYYY-MM-DD')
-             + CAST(CAST(date_appointed AS FLOAT) AS INTEGER)
-        ELSE NULL
-    END AS date_appointed,
+    date_appointed,
     reports_to
 FROM staging.managers
 ORDER BY manager_id;
 
--- Verify
 SELECT 'dim_managers' AS table_name, COUNT(*) AS rows
 FROM marts.dim_managers;
 
 -- ============================================
 -- dim_products
 -- 65 products across 15 categories
+-- Expected: 65 rows
 -- ============================================
 
 CREATE TABLE IF NOT EXISTS marts.dim_products (
@@ -161,14 +158,15 @@ SELECT
 FROM staging.products
 ORDER BY product_id;
 
--- Verify
 SELECT 'dim_products' AS table_name, COUNT(*) AS rows
 FROM marts.dim_products;
 
 -- ============================================
 -- dim_date
--- Generated date spine covering full
--- transaction date range
+-- Generated date spine — full 2026 calendar year
+-- Expected: 365 rows
+-- Uses generate_series() — no source table needed
+-- ON CONFLICT ensures safe re-runs
 -- ============================================
 
 CREATE TABLE IF NOT EXISTS marts.dim_date (
@@ -194,14 +192,14 @@ INSERT INTO marts.dim_date (
     is_weekend
 )
 SELECT
-    d::DATE                                    AS full_date,
-    TO_CHAR(d, 'Day')                          AS day_of_week,
-    EXTRACT(DAY FROM d)::INTEGER               AS day_num,
-    EXTRACT(MONTH FROM d)::INTEGER             AS month_num,
-    TO_CHAR(d, 'Month')                        AS month_name,
-    EXTRACT(QUARTER FROM d)::INTEGER           AS quarter,
-    EXTRACT(YEAR FROM d)::INTEGER              AS year,
-    EXTRACT(DOW FROM d) IN (0, 6)             AS is_weekend
+    d::DATE                             AS full_date,
+    TO_CHAR(d, 'Day')                   AS day_of_week,
+    EXTRACT(DAY     FROM d)::INTEGER    AS day_num,
+    EXTRACT(MONTH   FROM d)::INTEGER    AS month_num,
+    TO_CHAR(d, 'Month')                 AS month_name,
+    EXTRACT(QUARTER FROM d)::INTEGER    AS quarter,
+    EXTRACT(YEAR    FROM d)::INTEGER    AS year,
+    EXTRACT(DOW     FROM d) IN (0, 6)  AS is_weekend
 FROM generate_series(
     '2026-01-01'::DATE,
     '2026-12-31'::DATE,
@@ -209,12 +207,17 @@ FROM generate_series(
 ) AS d
 ON CONFLICT (full_date) DO NOTHING;
 
--- Verify
 SELECT 'dim_date' AS table_name, COUNT(*) AS rows
 FROM marts.dim_date;
 
 -- ============================================
--- Final verification — all dimension counts
+-- Final verification — all 5 dimension counts
+-- Expected:
+--   dim_date      → 365
+--   dim_managers  →  25
+--   dim_products  →  65
+--   dim_staff     →  90
+--   dim_stores    →  11
 -- ============================================
 SELECT 'dim_stores'   AS table_name, COUNT(*) AS rows FROM marts.dim_stores
 UNION ALL
