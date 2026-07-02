@@ -135,3 +135,277 @@ PIPELINE RUN STARTED: 2026-07-02 01:14:33
 [2026-07-02 01:14:56] [INFO]   fact_transactions:             0 rows
 [2026-07-02 01:14:56] [INFO]   dim_customers:                 0 rows
 [2026-07-02 01:14:56] [INFO] =============================================
+
+=======================================================
+PIPELINE RUN STARTED: 2026-07-02 01:45:49
+=======================================================
+[2026-07-02 01:45:49] [INFO] MeridianMart Pipeline Runner starting...
+[2026-07-02 01:45:49] [INFO] Project directory: /Users/lola-aacn/AMDE-Projects/meridianmart-warehouse
+[2026-07-02 01:45:49] [INFO] =============================================
+[2026-07-02 01:45:49] [INFO] STEP 1: Extracting reference sheets
+[2026-07-02 01:45:49] [INFO] =============================================
+[2026-07-02 01:45:49] [INFO] Running extract_references.py...
+[2026-07-02 01:45:55] [INFO] Completed extract_references.py
+[2026-07-02 01:45:55] [INFO]   Starting MeridianMart reference data extraction...
+[2026-07-02 01:45:55] [INFO]   
+[2026-07-02 01:45:55] [INFO]   Loading Products...
+[2026-07-02 01:45:55] [INFO]     Truncated raw.products
+[2026-07-02 01:45:55] [INFO]     raw.products: 65 rows loaded ✅
+[2026-07-02 01:45:55] [INFO]   
+[2026-07-02 01:45:55] [INFO]   Loading Staff...
+[2026-07-02 01:45:55] [INFO]     Truncated raw.staff
+[2026-07-02 01:45:55] [INFO]     raw.staff: 90 rows loaded ✅
+[2026-07-02 01:45:55] [INFO]   
+[2026-07-02 01:45:55] [INFO]   Loading Managers...
+[2026-07-02 01:45:55] [INFO]     Truncated raw.managers
+[2026-07-02 01:45:55] [INFO]     raw.managers: 25 rows loaded ✅
+[2026-07-02 01:45:55] [INFO]   
+[2026-07-02 01:45:55] [INFO]   Loading Stores...
+[2026-07-02 01:45:55] [INFO]     Truncated raw.stores
+[2026-07-02 01:45:55] [INFO]     raw.stores: 11 rows loaded ✅
+[2026-07-02 01:45:55] [INFO]   
+[2026-07-02 01:45:55] [INFO]   All reference sheets loaded successfully!
+[2026-07-02 01:45:55] [INFO]   raw.products: 65 rows
+[2026-07-02 01:45:55] [INFO]   raw.staff: 90 rows
+[2026-07-02 01:45:55] [INFO]   raw.managers: 25 rows
+[2026-07-02 01:45:55] [INFO]   raw.stores: 11 rows
+[2026-07-02 01:45:55] [INFO] =============================================
+[2026-07-02 01:45:55] [INFO] STEP 2: Extracting all 11 store sheets
+[2026-07-02 01:45:55] [INFO] =============================================
+[2026-07-02 01:45:55] [INFO] Running extract_all.py...
+[2026-07-02 01:46:12] [INFO] Completed extract_all.py
+[2026-07-02 01:46:12] [INFO]   Starting MeridianMart transaction data extraction...
+[2026-07-02 01:46:12] [INFO]   Processing 11 stores...
+[2026-07-02 01:46:12] [INFO]   
+[2026-07-02 01:46:12] [INFO]   Truncated raw.transactions
+[2026-07-02 01:46:12] [INFO]   
+[2026-07-02 01:46:12] [INFO]   Loading SalesLog_S001 (S001)...
+[2026-07-02 01:46:12] [INFO]     SalesLog_S001: 5053 rows loaded ✅
+[2026-07-02 01:46:12] [INFO]   
+[2026-07-02 01:46:12] [INFO]   Loading SalesLog_S002 (S002)...
+[2026-07-02 01:46:12] [INFO]     SalesLog_S002: 5229 rows loaded ✅
+[2026-07-02 01:46:12] [INFO]   
+[2026-07-02 01:46:12] [INFO]   Loading SalesLog_S003 (S003)...
+[2026-07-02 01:46:12] [INFO]     SalesLog_S003: 5044 rows loaded ✅
+[2026-07-02 01:46:12] [INFO]   
+[2026-07-02 01:46:12] [INFO]   Loading SalesLog_S004 (S004)...
+[2026-07-02 01:46:12] [INFO]     SalesLog_S004: 5163 rows loaded ✅
+[2026-07-02 01:46:12] [INFO]   
+[2026-07-02 01:46:12] [INFO]   Loading SalesLog_S005 (S005)...
+[2026-07-02 01:46:12] [INFO]     SalesLog_S005: 5084 rows loaded ✅
+[2026-07-02 01:46:12] [INFO]   
+[2026-07-02 01:46:12] [INFO]   Loading SalesLog_S006 (S006)...
+[2026-07-02 01:46:12] [INFO]     SalesLog_S006: 5097 rows loaded ✅
+[2026-07-02 01:46:12] [INFO]   
+[2026-07-02 01:46:12] [INFO]   Loading SalesLog_S007 (S007)...
+[2026-07-02 01:46:12] [INFO]     SalesLog_S007: 5055 rows loaded ✅
+[2026-07-02 01:46:12] [INFO]   
+[2026-07-02 01:46:12] [INFO]   Loading SalesLog_S008 (S008)...
+[2026-07-02 01:46:12] [INFO]     SalesLog_S008: 5204 rows loaded ✅
+[2026-07-02 01:46:12] [INFO]   
+[2026-07-02 01:46:12] [INFO]   Loading SalesLog_S009 (S009)...
+[2026-07-02 01:46:12] [INFO]     SalesLog_S009: 5014 rows loaded ✅
+[2026-07-02 01:46:12] [INFO]   
+[2026-07-02 01:46:12] [INFO]   Loading SalesLog_S010 (S010)...
+[2026-07-02 01:46:12] [INFO]     SalesLog_S010: 5207 rows loaded ✅
+[2026-07-02 01:46:12] [INFO]   
+[2026-07-02 01:46:12] [INFO]   Loading SalesLog_S011 (S011)...
+[2026-07-02 01:46:12] [INFO]     SalesLog_S011: 4989 rows loaded ✅
+[2026-07-02 01:46:12] [INFO]   
+[2026-07-02 01:46:12] [INFO]   =============================================
+[2026-07-02 01:46:12] [INFO]   Extraction complete!
+[2026-07-02 01:46:12] [INFO]   Total rows loaded: 56139
+[2026-07-02 01:46:12] [INFO]   =============================================
+[2026-07-02 01:46:12] [INFO]   raw.transactions: 56139 rows
+[2026-07-02 01:46:12] [INFO] =============================================
+[2026-07-02 01:46:12] [INFO] STEP 3: Loading staging tables from raw
+[2026-07-02 01:46:12] [INFO] =============================================
+[2026-07-02 01:46:12] [INFO] Running load_staging.sql...
+[2026-07-02 01:46:12] [INFO] Completed load_staging.sql
+[2026-07-02 01:46:12] [INFO]   staging.stores: 11 rows
+[2026-07-02 01:46:12] [INFO]   staging.staff: 90 rows
+[2026-07-02 01:46:12] [INFO]   staging.managers: 25 rows
+[2026-07-02 01:46:12] [INFO]   staging.products: 65 rows
+[2026-07-02 01:46:12] [INFO] =============================================
+[2026-07-02 01:46:12] [INFO] STEP 4: Running validation checks
+[2026-07-02 01:46:12] [INFO] =============================================
+[2026-07-02 01:46:12] [INFO] Running validate.sql...
+[2026-07-02 01:46:12] [INFO] Completed validate.sql
+[2026-07-02 01:46:12] [INFO]   audit.validation_log: 0 findings
+[2026-07-02 01:46:12] [INFO]   All validation checks passed — 0 findings ✅
+[2026-07-02 01:46:12] [INFO] =============================================
+[2026-07-02 01:46:12] [INFO] STEP 5: Building dimension tables
+[2026-07-02 01:46:12] [INFO] =============================================
+[2026-07-02 01:46:12] [INFO] Running build_dimensions.sql...
+[2026-07-02 01:46:12] [INFO] Completed build_dimensions.sql
+[2026-07-02 01:46:12] [INFO]   marts.dim_stores: 11 rows
+[2026-07-02 01:46:12] [INFO]   marts.dim_staff: 90 rows
+[2026-07-02 01:46:12] [INFO]   marts.dim_managers: 25 rows
+[2026-07-02 01:46:12] [INFO]   marts.dim_products: 65 rows
+[2026-07-02 01:46:12] [INFO]   marts.dim_date: 365 rows
+[2026-07-02 01:46:12] [INFO] =============================================
+[2026-07-02 01:46:12] [INFO] STEP 6: Building fact table
+[2026-07-02 01:46:12] [INFO] =============================================
+[2026-07-02 01:46:12] [INFO] Running build_fact.sql...
+[2026-07-02 01:46:12] [INFO] Completed build_fact.sql
+[2026-07-02 01:46:12] [INFO]   marts.fact_transactions: 0 rows
+[2026-07-02 01:46:12] [INFO] =============================================
+[2026-07-02 01:46:12] [INFO] STEP 7: Building dim_customers
+[2026-07-02 01:46:12] [INFO] =============================================
+[2026-07-02 01:46:12] [INFO] Running dim_customers.sql...
+[2026-07-02 01:46:12] [INFO] Completed dim_customers.sql
+[2026-07-02 01:46:12] [INFO]   marts.dim_customers: 0 rows
+[2026-07-02 01:46:12] [INFO] =============================================
+[2026-07-02 01:46:12] [INFO] STEP 8: Running FK integrity checks
+[2026-07-02 01:46:12] [INFO] =============================================
+[2026-07-02 01:46:12] [INFO]   no_matching_store: 0 orphans ✅
+[2026-07-02 01:46:12] [INFO]   no_matching_staff: 0 orphans ✅
+[2026-07-02 01:46:12] [INFO]   no_matching_product: 0 orphans ✅
+[2026-07-02 01:46:12] [INFO]   no_matching_date: 0 orphans ✅
+[2026-07-02 01:46:12] [INFO] All FK integrity checks passed ✅
+[2026-07-02 01:46:12] [INFO] =============================================
+[2026-07-02 01:46:12] [INFO] PIPELINE COMPLETE ✅
+[2026-07-02 01:46:12] [INFO] =============================================
+[2026-07-02 01:46:12] [INFO]   raw.transactions:         56,139 rows
+[2026-07-02 01:46:12] [INFO]   staging tables loaded:       191 rows
+[2026-07-02 01:46:12] [INFO]   audit findings:                0
+[2026-07-02 01:46:12] [INFO]   fact_transactions:             0 rows
+[2026-07-02 01:46:12] [INFO]   dim_customers:                 0 rows
+[2026-07-02 01:46:12] [INFO] =============================================
+
+=======================================================
+PIPELINE RUN STARTED: 2026-07-02 01:46:48
+=======================================================
+[2026-07-02 01:46:48] [INFO] MeridianMart Pipeline Runner starting...
+[2026-07-02 01:46:48] [INFO] Project directory: /Users/lola-aacn/AMDE-Projects/meridianmart-warehouse
+[2026-07-02 01:46:48] [INFO] =============================================
+[2026-07-02 01:46:48] [INFO] STEP 1: Extracting reference sheets
+[2026-07-02 01:46:48] [INFO] =============================================
+[2026-07-02 01:46:48] [INFO] Running extract_references.py...
+[2026-07-02 01:46:51] [INFO] Completed extract_references.py
+[2026-07-02 01:46:51] [INFO]   Starting MeridianMart reference data extraction...
+[2026-07-02 01:46:51] [INFO]   
+[2026-07-02 01:46:51] [INFO]   Loading Products...
+[2026-07-02 01:46:51] [INFO]     Truncated raw.products
+[2026-07-02 01:46:51] [INFO]     raw.products: 65 rows loaded ✅
+[2026-07-02 01:46:51] [INFO]   
+[2026-07-02 01:46:51] [INFO]   Loading Staff...
+[2026-07-02 01:46:51] [INFO]     Truncated raw.staff
+[2026-07-02 01:46:51] [INFO]     raw.staff: 90 rows loaded ✅
+[2026-07-02 01:46:51] [INFO]   
+[2026-07-02 01:46:51] [INFO]   Loading Managers...
+[2026-07-02 01:46:51] [INFO]     Truncated raw.managers
+[2026-07-02 01:46:51] [INFO]     raw.managers: 25 rows loaded ✅
+[2026-07-02 01:46:51] [INFO]   
+[2026-07-02 01:46:51] [INFO]   Loading Stores...
+[2026-07-02 01:46:51] [INFO]     Truncated raw.stores
+[2026-07-02 01:46:51] [INFO]     raw.stores: 11 rows loaded ✅
+[2026-07-02 01:46:51] [INFO]   
+[2026-07-02 01:46:51] [INFO]   All reference sheets loaded successfully!
+[2026-07-02 01:46:51] [INFO]   raw.products: 65 rows
+[2026-07-02 01:46:51] [INFO]   raw.staff: 90 rows
+[2026-07-02 01:46:51] [INFO]   raw.managers: 25 rows
+[2026-07-02 01:46:51] [INFO]   raw.stores: 11 rows
+[2026-07-02 01:46:51] [INFO] =============================================
+[2026-07-02 01:46:51] [INFO] STEP 2: Extracting all 11 store sheets
+[2026-07-02 01:46:51] [INFO] =============================================
+[2026-07-02 01:46:51] [INFO] Running extract_all.py...
+[2026-07-02 01:47:02] [INFO] Completed extract_all.py
+[2026-07-02 01:47:02] [INFO]   Starting MeridianMart transaction data extraction...
+[2026-07-02 01:47:02] [INFO]   Processing 11 stores...
+[2026-07-02 01:47:02] [INFO]   
+[2026-07-02 01:47:02] [INFO]   Truncated raw.transactions
+[2026-07-02 01:47:02] [INFO]   
+[2026-07-02 01:47:02] [INFO]   Loading SalesLog_S001 (S001)...
+[2026-07-02 01:47:02] [INFO]     SalesLog_S001: 5053 rows loaded ✅
+[2026-07-02 01:47:02] [INFO]   
+[2026-07-02 01:47:02] [INFO]   Loading SalesLog_S002 (S002)...
+[2026-07-02 01:47:02] [INFO]     SalesLog_S002: 5229 rows loaded ✅
+[2026-07-02 01:47:02] [INFO]   
+[2026-07-02 01:47:02] [INFO]   Loading SalesLog_S003 (S003)...
+[2026-07-02 01:47:02] [INFO]     SalesLog_S003: 5044 rows loaded ✅
+[2026-07-02 01:47:02] [INFO]   
+[2026-07-02 01:47:02] [INFO]   Loading SalesLog_S004 (S004)...
+[2026-07-02 01:47:02] [INFO]     SalesLog_S004: 5163 rows loaded ✅
+[2026-07-02 01:47:02] [INFO]   
+[2026-07-02 01:47:02] [INFO]   Loading SalesLog_S005 (S005)...
+[2026-07-02 01:47:02] [INFO]     SalesLog_S005: 5084 rows loaded ✅
+[2026-07-02 01:47:02] [INFO]   
+[2026-07-02 01:47:02] [INFO]   Loading SalesLog_S006 (S006)...
+[2026-07-02 01:47:02] [INFO]     SalesLog_S006: 5097 rows loaded ✅
+[2026-07-02 01:47:02] [INFO]   
+[2026-07-02 01:47:02] [INFO]   Loading SalesLog_S007 (S007)...
+[2026-07-02 01:47:02] [INFO]     SalesLog_S007: 5055 rows loaded ✅
+[2026-07-02 01:47:02] [INFO]   
+[2026-07-02 01:47:02] [INFO]   Loading SalesLog_S008 (S008)...
+[2026-07-02 01:47:02] [INFO]     SalesLog_S008: 5204 rows loaded ✅
+[2026-07-02 01:47:02] [INFO]   
+[2026-07-02 01:47:02] [INFO]   Loading SalesLog_S009 (S009)...
+[2026-07-02 01:47:02] [INFO]     SalesLog_S009: 5014 rows loaded ✅
+[2026-07-02 01:47:02] [INFO]   
+[2026-07-02 01:47:02] [INFO]   Loading SalesLog_S010 (S010)...
+[2026-07-02 01:47:02] [INFO]     SalesLog_S010: 5207 rows loaded ✅
+[2026-07-02 01:47:02] [INFO]   
+[2026-07-02 01:47:02] [INFO]   Loading SalesLog_S011 (S011)...
+[2026-07-02 01:47:02] [INFO]     SalesLog_S011: 4989 rows loaded ✅
+[2026-07-02 01:47:02] [INFO]   
+[2026-07-02 01:47:02] [INFO]   =============================================
+[2026-07-02 01:47:02] [INFO]   Extraction complete!
+[2026-07-02 01:47:02] [INFO]   Total rows loaded: 56139
+[2026-07-02 01:47:02] [INFO]   =============================================
+[2026-07-02 01:47:02] [INFO]   raw.transactions: 56139 rows
+[2026-07-02 01:47:02] [INFO] =============================================
+[2026-07-02 01:47:02] [INFO] STEP 3: Loading staging tables from raw
+[2026-07-02 01:47:02] [INFO] =============================================
+[2026-07-02 01:47:02] [INFO] Running load_staging.sql...
+[2026-07-02 01:47:02] [INFO] Completed load_staging.sql
+[2026-07-02 01:47:02] [INFO]   staging.stores: 11 rows
+[2026-07-02 01:47:02] [INFO]   staging.staff: 90 rows
+[2026-07-02 01:47:02] [INFO]   staging.managers: 25 rows
+[2026-07-02 01:47:02] [INFO]   staging.products: 65 rows
+[2026-07-02 01:47:02] [INFO] =============================================
+[2026-07-02 01:47:02] [INFO] STEP 4: Running validation checks
+[2026-07-02 01:47:02] [INFO] =============================================
+[2026-07-02 01:47:02] [INFO] Running validate.sql...
+[2026-07-02 01:47:02] [INFO] Completed validate.sql
+[2026-07-02 01:47:02] [INFO]   audit.validation_log: 0 findings
+[2026-07-02 01:47:02] [INFO]   All validation checks passed — 0 findings ✅
+[2026-07-02 01:47:02] [INFO] =============================================
+[2026-07-02 01:47:02] [INFO] STEP 5: Building dimension tables
+[2026-07-02 01:47:02] [INFO] =============================================
+[2026-07-02 01:47:02] [INFO] Running build_dimensions.sql...
+[2026-07-02 01:47:02] [INFO] Completed build_dimensions.sql
+[2026-07-02 01:47:02] [INFO]   marts.dim_stores: 11 rows
+[2026-07-02 01:47:02] [INFO]   marts.dim_staff: 90 rows
+[2026-07-02 01:47:02] [INFO]   marts.dim_managers: 25 rows
+[2026-07-02 01:47:02] [INFO]   marts.dim_products: 65 rows
+[2026-07-02 01:47:02] [INFO]   marts.dim_date: 365 rows
+[2026-07-02 01:47:02] [INFO] =============================================
+[2026-07-02 01:47:02] [INFO] STEP 6: Building fact table
+[2026-07-02 01:47:02] [INFO] =============================================
+[2026-07-02 01:47:02] [INFO] Running build_fact.sql...
+[2026-07-02 01:47:02] [INFO] Completed build_fact.sql
+[2026-07-02 01:47:02] [INFO]   marts.fact_transactions: 0 rows
+[2026-07-02 01:47:02] [INFO] =============================================
+[2026-07-02 01:47:02] [INFO] STEP 7: Building dim_customers
+[2026-07-02 01:47:02] [INFO] =============================================
+[2026-07-02 01:47:02] [INFO] Running dim_customers.sql...
+[2026-07-02 01:47:02] [INFO] Completed dim_customers.sql
+[2026-07-02 01:47:02] [INFO]   marts.dim_customers: 0 rows
+[2026-07-02 01:47:02] [INFO] =============================================
+[2026-07-02 01:47:02] [INFO] STEP 8: Running FK integrity checks
+[2026-07-02 01:47:02] [INFO] =============================================
+[2026-07-02 01:47:02] [INFO]   no_matching_store: 0 orphans ✅
+[2026-07-02 01:47:02] [INFO]   no_matching_staff: 0 orphans ✅
+[2026-07-02 01:47:02] [INFO]   no_matching_product: 0 orphans ✅
+[2026-07-02 01:47:02] [INFO]   no_matching_date: 0 orphans ✅
+[2026-07-02 01:47:02] [INFO] All FK integrity checks passed ✅
+[2026-07-02 01:47:02] [INFO] =============================================
+[2026-07-02 01:47:02] [INFO] PIPELINE COMPLETE ✅
+[2026-07-02 01:47:02] [INFO] =============================================
+[2026-07-02 01:47:02] [INFO]   raw.transactions:         56,139 rows
+[2026-07-02 01:47:02] [INFO]   staging tables loaded:       191 rows
+[2026-07-02 01:47:02] [INFO]   audit findings:                0
+[2026-07-02 01:47:02] [INFO]   fact_transactions:             0 rows
+[2026-07-02 01:47:02] [INFO]   dim_customers:                 0 rows
+[2026-07-02 01:47:02] [INFO] =============================================
